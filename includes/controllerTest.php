@@ -2,8 +2,6 @@
 <div id="gamepadDisplay"></div>
 <div id="stringOutput"></div>
 
-<script src="jquery-2.1.1.min.js"> </script>
-<script src="/socket.io/socket.io.js"></script>
 <script>
 var hasGP = false;
 var repGP;

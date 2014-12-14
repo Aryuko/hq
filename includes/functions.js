@@ -91,6 +91,8 @@ function signinClick(){
 
     ajax.send(formToStringGeneral(document.getElementById("loginForm")));
     var resp=responseTextToData(ajax)['ajaxStatus'];
+    
+	//alert(ajax.responseText);   //debug
 	
     switch(resp)
     {
@@ -132,6 +134,9 @@ function signoutClick(){
 }
 
 function search() {
+	//console.log($("#search").val().length);
+	//console.log($("#search").val());
+	//console.log("searched");
 	$.ajax({
 		type: "GET",
 		url: "includes/search.php",
@@ -140,6 +145,7 @@ function search() {
 		}
 	})
 	.done(function(result){
+		//console.log(result);
 		result = JSON.parse(result);
 		if (result.length === 0)
 			var html = "No results found";
@@ -147,6 +153,7 @@ function search() {
 			var html = '<tr><th>Username</th><th>Expiration Date</th><th>Admin</th><th>Delete</th></tr>';
 			for (var i = 0; i < result.length; i++){
 				var partresult = result[i];
+				//console.log(partresult[0]);
 				
 				if(partresult[2] == 1)
 					html += '<tr><td>' + partresult[0] + '</td><td>' + partresult[1] + "</td><td>" + "Yes" + "</td><td><button onclick=\"deleteUser('" + partresult[0] + "')\" disabled>Delete</button></td></tr>";
@@ -177,11 +184,12 @@ function userControlling(){
 		url: "includes/userControlling.php"
 	})
 	.done(function(result){
+		//console.log("Done");
+		//console.log(result);
 		if (result == ''){
 			result = "Ingen";
 			$("#takeControlButton").css({
 				'background-color' : '#00b3fd',
-                'color' : 'white',
 				'cursor' : 'pointer'
 			});
 			$("#takeControlButton").attr("onClick", "takeControl()");
@@ -189,7 +197,6 @@ function userControlling(){
 		else{
 			$("#takeControlButton").css({
 				'background-color' : 'gray',
-                'color' : 'white',
 				'cursor' : 'not-allowed'
 			});
 			$("#takeControlButton").removeAttr("onClick");
