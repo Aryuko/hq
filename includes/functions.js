@@ -61,6 +61,10 @@ function loggedIn(admin){
 		$("#loginArea").html(response);
 		popupboxRight();
 		
+		$("#buttonArea").html("<div id=\"takeControlButton\" >Ta kontroll!</div>");
+		
+		userControlling();
+		
 		$(".loginfield").keypress(function(event){
 			//console.log(event.keyCode);       //debug
 			if (event.keyCode == 13)
@@ -121,6 +125,14 @@ function loggedOut(){
 	$("#fyra").remove();
 	$("#AdminVerktyg").remove();
 	
+	if(inControl)
+		stopControlling();
+	
+	$("#buttonArea").html("<div id=\"loginPrompt\" >Logga in för att kunna ta kontroll</div>");
+	
+	userControlling();
+	
+	
 }
 
 function signoutClick(){
@@ -168,42 +180,4 @@ function search() {
 }
 var autoSearch = window.setInterval(search, 10000);
 
-function takeControl(){
-	$.ajax({
-		type: "GET",
-		url: "includes/takeControl.php"
-	})
-	.done(function(result){
-	
-	});
-}
 
-function userControlling(){
-	$.ajax({
-		type: "GET",
-		url: "includes/userControlling.php"
-	})
-	.done(function(result){
-		//console.log("Done");
-		//console.log(result);
-		if (result == ''){
-			result = "Ingen";
-			$("#takeControlButton").css({
-				'background-color' : '#00b3fd',
-				'cursor' : 'pointer'
-			});
-			$("#takeControlButton").attr("onClick", "takeControl()");
-		}
-		else{
-			$("#takeControlButton").css({
-				'background-color' : 'gray',
-				'cursor' : 'not-allowed'
-			});
-			$("#takeControlButton").removeAttr("onClick");
-		}
-		
-		$("#userControlling").html(result + " kontrollerar just nu");
-	});
-}
-
-var autoControlCheck = window.setInterval(userControlling, 2000);

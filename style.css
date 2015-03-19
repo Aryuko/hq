@@ -1,12 +1,8 @@
-/*{
-	margin:0px;
-}*/
 body {
 	font-family: 'Raleway', sans-serif;
 	font-weight: 400;
 	margin:0em;
     height:100%;
-	/*background: #262626;*/
     background: linear-gradient(180deg, black, grey);
 	overflow-x:hidden;
 	color: white;
@@ -25,6 +21,7 @@ a:hover{
 	background-image: url(tile/dark-grey-tile.png);
 	border-bottom: #00b3fd solid 4px;
 	position: relative;
+	min-height: 130px;
 	
 	-moz-user-select: none;
 	-webkit-user-select: none;
@@ -105,7 +102,6 @@ a:hover{
     position: absolute;
     bottom: -4px;
     right: 83px;
-    /*right: 5em;*/
     display: inline-flex;
     overflow: hidden;
     float: right;
@@ -130,7 +126,6 @@ a:hover{
     display: flex;
     width: 100%;
     padding-top: 0.3em;
-    /*border-top: #00b3fd solid 4px;*/
     position: absolute;
     left:  5px;
 }
@@ -176,6 +171,7 @@ a:hover{
 	position: relative; 
 	bottom: 0; 
 	left: 0;
+	/*height: 130px;*/
 }
 #container {
 	overflow: hidden;
@@ -202,7 +198,6 @@ a:hover{
     flex-direction: column;
 }
 .content {
-	/*background-color: #515151;*/
     background: linear-gradient(180deg, #262626, grey);
 	width: 80em;
 	max-width: 100%;
@@ -224,6 +219,7 @@ a:hover{
 }
 .content > * {
 	padding: 0.5em 1em;
+	margin: 0em 0em 0em 1em;
 }
 #streamwindow{
     background-color: black;
@@ -246,13 +242,7 @@ html {
 ::-webkit-scrollbar {
     width: 12px;
 }
-/* Track 
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); 
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-}*/
-/* Handle */
+
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 5px;
     border-radius: 5px;
@@ -278,7 +268,39 @@ html {
     position: relative;
     padding: 0.25em 1em;
     background-color: gray;
+	
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
+	#loginPrompt {
+		display: inline;
+		position: relative;
+		padding: 0.25em 1em;
+		background-color: gray;
+		cursor: not-allowed;
+
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-o-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	#adminStopControlButton {
+		display: inline;
+		position: relative;
+		padding: 0.25em 1em;
+		background-color: #ff7d00;
+		cursor: pointer;
+		
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-o-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
 
 .centerContent {
     width: 70%;
@@ -314,12 +336,17 @@ html {
     float: left;
     height: 30em;
     overflow-y: scroll;
-    /*background-color: #606060;*/
     //box-shadow: inset 0 0 10px #262626;
     //border-radius: 5px;
 }
 
 
-#takeControlButton {
-	ba
+#buttonArea {
+    display: inline;
+    position: relative;
+}
+
+#messageField {
+	float: right;
+	margin-top: 0.25em;
 }

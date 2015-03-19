@@ -1,6 +1,5 @@
 <?php
     require_once "functions.php";
-	/*require_once 'functions.php';*/
 
     $uname		= $_POST['username'];
     if  ($_POST['pword'] == $_POST['pword2'])

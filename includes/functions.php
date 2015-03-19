@@ -8,4 +8,5 @@
     function kill($msg){
         die("<div class='ajaxStatus'>$msg</div>");
     }
+
 ?>
